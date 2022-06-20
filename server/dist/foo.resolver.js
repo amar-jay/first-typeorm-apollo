@@ -9,28 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Article = void 0;
-const typeorm_1 = require("typeorm");
-let Article = class Article {
+exports.FooResolver = void 0;
+const type_graphql_1 = require("type-graphql");
+let FooResolver = class FooResolver {
+    async foo() {
+        return "Hello World!";
+    }
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], Article.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: "varchar" }),
-    __metadata("design:type", String)
-], Article.prototype, "title", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: "varchar" }),
-    __metadata("design:type", String)
-], Article.prototype, "description", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], Article.prototype, "age", void 0);
-Article = __decorate([
-    (0, typeorm_1.Entity)()
-], Article);
-exports.Article = Article;
-//# sourceMappingURL=Articles.js.map
+    (0, type_graphql_1.Query)(() => String),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], FooResolver.prototype, "foo", null);
+FooResolver = __decorate([
+    (0, type_graphql_1.Resolver)()
+], FooResolver);
+exports.FooResolver = FooResolver;
+//# sourceMappingURL=foo.resolver.js.map

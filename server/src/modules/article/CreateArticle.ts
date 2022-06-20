@@ -1,9 +1,9 @@
 import { Tag } from "src/entity/Tag";
-import { Field, InputType, Mutation, Arg, Resolver } from "type-graphql";
-import { Article } from "../../entity/Article";
+import { Field, InputType } from "type-graphql";
+import { ArticleEntity } from "../../entity/Article";
 
 @InputType()
-export class CreateArticleInput implements Partial<Article> {
+export class CreateArticleInput implements Partial<ArticleEntity> {
   @Field()
   title!: string;
 

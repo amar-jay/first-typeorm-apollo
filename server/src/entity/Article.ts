@@ -4,9 +4,11 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  Unique,
+  ManyToMany,
+  JoinTable,
   ManyToOne,
   JoinColumn,
-  Unique,
 } from "typeorm";
 import { Field, ObjectType } from "type-graphql";
 import { Tag } from "./Tag";
@@ -14,7 +16,7 @@ import { Tag } from "./Tag";
 @ObjectType()
 @Entity()
 @Unique(["title"])
-export class Article {
+export class ArticleEntity {
   @Field(() => Number)
   @PrimaryGeneratedColumn()
   public readonly id!: number;
@@ -38,6 +40,8 @@ export class Article {
   @Column()
   public content!: string;
 
-  @ManyToOne((_type) => Tag, (tag: Tag) => tag.name)
-  public tags: Tag[];
+  // @Field(() => [Tag])
+  // @ManyToMany((_type) => Tag, (tag: Tag) => tag.id)
+  // @JoinColumn()
+  // public tags: Tag[];
 }

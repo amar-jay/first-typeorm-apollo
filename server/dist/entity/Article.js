@@ -9,49 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Article = void 0;
+exports.ArticleEntity = void 0;
 const typeorm_1 = require("typeorm");
 const type_graphql_1 = require("type-graphql");
-const Tag_1 = require("./Tag");
-let Article = class Article {
+let ArticleEntity = class ArticleEntity {
 };
 __decorate([
     (0, type_graphql_1.Field)(() => Number),
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Article.prototype, "id", void 0);
+], ArticleEntity.prototype, "id", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     (0, typeorm_1.Column)({ type: "varchar" }),
     __metadata("design:type", String)
-], Article.prototype, "title", void 0);
+], ArticleEntity.prototype, "title", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     (0, typeorm_1.Column)({ type: "varchar" }),
     __metadata("design:type", String)
-], Article.prototype, "description", void 0);
+], ArticleEntity.prototype, "description", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
-], Article.prototype, "created_at", void 0);
+], ArticleEntity.prototype, "created_at", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => String),
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
-], Article.prototype, "updated_at", void 0);
+], ArticleEntity.prototype, "updated_at", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Article.prototype, "content", void 0);
-__decorate([
-    (0, typeorm_1.ManyToOne)((_type) => Tag_1.Tag, (tag) => tag.name),
-    __metadata("design:type", Array)
-], Article.prototype, "tags", void 0);
-Article = __decorate([
+], ArticleEntity.prototype, "content", void 0);
+ArticleEntity = __decorate([
     (0, type_graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)(),
     (0, typeorm_1.Unique)(["title"])
-], Article);
-exports.Article = Article;
+], ArticleEntity);
+exports.ArticleEntity = ArticleEntity;
 //# sourceMappingURL=Article.js.map
